@@ -35,7 +35,7 @@ const QuestionToggleIcon = styled.span`
     ${tw`w-4 h-4`}
   }
 `;
-const Answer = motion.custom(tw.dd`pointer-events-none text-sm sm:text-base leading-relaxed`);
+const Answer = motion(tw.dd`pointer-events-none text-sm sm:text-base leading-relaxed`);
 
 export default ({
   subheading = "",

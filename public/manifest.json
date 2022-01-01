@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Treact",
+  "name": "Treact - Modern React Templates and Components for building Landing Pages",
   "icons": [
     {
       "src": "favicon.ico",

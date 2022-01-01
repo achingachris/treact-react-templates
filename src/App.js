@@ -1,7 +1,7 @@
-import 'tailwindcss/dist/base.css'
-import 'styles/globalStyles.css'
-import React from 'react'
-import { css } from 'styled-components/macro' //eslint-disable-line
+import "tailwindcss/dist/base.css";
+import "styles/globalStyles.css";
+import React from "react";
+import { css } from "styled-components/macro"; //eslint-disable-line
 
 /*
  * This is the entry point component of this project. You can change the below exported default App component to any of
@@ -15,7 +15,7 @@ import { css } from 'styled-components/macro' //eslint-disable-line
  *
  */
 
-/* Use AnimationRevealPage as a wrapper component for your pages if you are custom building it */
+/* Use AnimationRevealPage as a wrapper component for your pages if you are building a custom one yourself */
 // import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 
 /*
@@ -101,28 +101,35 @@ import { css } from 'styled-components/macro' //eslint-disable-line
 // import TermsOfServicePage from "pages/TermsOfService.js";
 // import PrivacyPolicyPage from "pages/PrivacyPolicy.js";
 
-import ComponentRenderer from 'ComponentRenderer.js'
-import MainLandingPage from 'MainLandingPage.js'
+import ComponentRenderer from "ComponentRenderer.js";
+import MainLandingPage from "MainLandingPage.js";
+import ThankYouPage from "ThankYouPage.js";
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 export default function App() {
-  // return <AnimationRevealPage disabled></AnimationRevealPage>;
+  // If you want to disable the animation just use the disabled `prop` like below on your page's component
+  // return <AnimationRevealPage disabled>xxxxxxxxxx</AnimationRevealPage>;
+
+
   return (
     <Router>
       <Switch>
-        <Route path='/components/:type/:subtype/:name'>
+        <Route path="/components/:type/:subtype/:name">
           <ComponentRenderer />
         </Route>
-        <Route path='/components/:type/:name'>
+        <Route path="/components/:type/:name">
           <ComponentRenderer />
         </Route>
-        <Route path='/'>
+        <Route path="/thank-you">
+          <ThankYouPage />
+        </Route>
+        <Route path="/">
           <MainLandingPage />
         </Route>
       </Switch>
     </Router>
-  )
+  );
 }
 
 // export default EventLandingPage;
