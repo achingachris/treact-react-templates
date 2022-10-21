@@ -44,7 +44,7 @@ export default ({ headingText = "Privacy Policy" }) => {
             <Heading>{headingText}</Heading>
           </HeadingRow>
           <Text>
-            <p>Last updated: April 21, 2020</p>
+            <p>Last updated: April 21, 2048</p>
 
             <p>
               This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your

@@ -46,7 +46,7 @@ export default ({ headingText = "Terms And Condition" }) => {
           </HeadingRow>
           <Text>
 
-            <p>Last updated: April 21, 2020</p>
+            <p>Last updated: April 21, 2048</p>
 
             <p>Please read these terms and conditions carefully before using Our Service.</p>
 

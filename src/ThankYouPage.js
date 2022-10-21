@@ -2,8 +2,8 @@ import React from "react";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import { Container, Content2Xl } from "components/misc/Layouts";
 import tw from "twin.macro";
-import styled from "styled-components";
-import { css } from "styled-components/macro";
+// eslint-disable-next-line
+import { css } from "styled-components/macro"; 
 import GitHubButton from "react-github-btn";
 
 import { LogoLink } from "components/headers/light.js";

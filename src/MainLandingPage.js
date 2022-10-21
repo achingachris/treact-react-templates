@@ -20,7 +20,7 @@ import { ReactComponent as ArrowRightIcon } from "images/arrow-right-3-icon.svg"
 
 import heroScreenshotImageSrc from "images/demo/MainLandingPageHero.png";
 import logo from "images/logo.svg";
-import useInView from "@owaiswiz/use-in-view";
+import useInView from "helpers/useInView";
 
 /* Hero */
 const Row = tw.div`flex`;
@@ -66,7 +66,7 @@ const PreviewCardContainer = tw.div`mt-24 mx-auto md:mx-0 max-w-lg w-full md:w-1
 const PreviewCard = tw(motion.a)`block rounded-lg shadow-raised`;
 const PreviewCardImageContainer = tw.div`rounded-t-lg border-0 border-b-0`;
 const PreviewCardImage = styled(motion.div)`
-  ${props => css`background-image: url("${props.imageSrc}");`}
+  ${props => css`background-image: url("${props.$imageSrc}");`}
   ${tw`h-128 md:h-144 bg-cover bg-left-top`}
 `;
 const PreviewButton = tw(PrimaryButtonBase)`w-full rounded-b-lg rounded-t-none py-5 font-semibold`;
@@ -104,8 +104,10 @@ export default ({
    * Using gtag like this because we only want to use Google Analytics when Main Landing Page is rendered
    * Remove this part and the the gtag script inside public/index.html if you dont need google analytics
    */
-  window.gtag("js", new Date());
-  window.gtag("config", "UA-45799926-9");
+  useEffect(() => {
+    window.gtag("js", new Date());
+    window.gtag("config", "UA-45799926-9");
+  }, [])
 
   const previewImageAnimationVariants = {
     rest: {
@@ -161,7 +163,7 @@ export default ({
           <HeroRow>
             <UpdateNotice>
               <UpdateNoticeIcon />
-              Last updated on 20th April, 2021 - Added support for React v17 and TailwindCSS v2!
+              Last updated on 10th September, 2022 - Added support for React v18 and TailwindCSS v3!
             </UpdateNotice>
             <TextColumn>
               <Heading as="h1">{heading}</Heading>
@@ -201,7 +203,7 @@ export default ({
                       <PreviewCardImage
                         transition={{ type: "tween" }}
                         variants={previewImageAnimationVariants}
-                        imageSrc={page.imageSrc}
+                        $imageSrc={page.imageSrc}
                       />
                     </PreviewCardImageContainer>
                     <PreviewButton>View Live Demo</PreviewButton>
@@ -224,7 +226,7 @@ export default ({
                       <PreviewCardImage
                         transition={{ type: "tween" }}
                         variants={!page.scrollAnimationDisabled && previewImageAnimationVariants}
-                        imageSrc={page.imageSrc}
+                        $imageSrc={page.imageSrc}
                       />
                     </PreviewCardImageContainer>
                     <PreviewButton>View Live Demo</PreviewButton>
@@ -273,8 +275,7 @@ const BlocksRenderer = ({ blocks }) => {
 };
 
 const Block = ({ notifyIsVisible, components }) => {
-  const offset = 30;
-  const [ref, inView] = useInView(offset);
+  const [ref, inView] = useInView();
 
   useEffect(() => {
     if (inView) notifyIsVisible();
